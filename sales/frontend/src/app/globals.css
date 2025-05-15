@@ -13,6 +13,7 @@
 html,
 body {
   max-width: 100vw;
+  min-height: 100vh;
   overflow-x: hidden;
 }
 
@@ -33,6 +34,10 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.my-select__menu{
+color:#0a0a0a;
 }
 
 @media (prefers-color-scheme: dark) {
