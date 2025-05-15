@@ -30,12 +30,12 @@ export const Cart: React.FC = () => {
     setCart((prev) => [
       ...prev,
       {
-        id: crypto.randomUUID(),//generating a random uuid to identify products in the cart
+        id: crypto.randomUUID(), //generating a random uuid to identify products in the cart
         name: null,
         type: null,
         itemId: null,
         quantity: 1,
-        imported: false,
+        isImported: false,
         price: null,
       },
     ]);
@@ -62,8 +62,11 @@ export const Cart: React.FC = () => {
       body: JSON.stringify(cart),
     });
 
-    const data = await res.json();
-    setReceipt(data);
+    const json = await res.json();
+
+    console.log(json as ReceiptInfo);
+
+    setReceipt(json as ReceiptInfo);
     setShowReceipt(true);
   };
 
@@ -106,20 +109,22 @@ export const Cart: React.FC = () => {
               });
             }}
           />
-
+          <br />
           <label>
             <input
               type="checkbox"
-              checked={cartItem.imported}
+              checked={cartItem.isImported}
               onChange={(e) => {
                 updateCartItem(cartItem.id, {
-                  imported: e.target.checked,
+                  isImported: e.target.checked,
                 });
               }}
             />
             Imported
           </label>
-
+          <br />
+          <label>price: {cartItem.price}</label>
+          <br />
           <button
             onClick={() => {
               removeItem(cartItem.id);
@@ -132,7 +137,13 @@ export const Cart: React.FC = () => {
       {cart.length > 0 && cart.filter((x) => x.name != null).length > 0 && (
         <button onClick={submitCart}>Submit Cart</button>
       )}
-      {showReceipt && <Receipt items={receipt!.items} tax={receipt!.tax} total={receipt!.total} />}
+      {showReceipt && (
+        <Receipt
+          Items={receipt!.Items}
+          Tax={receipt!.Tax}
+          Total={receipt!.Total}
+        />
+      )}
     </div>
   );
 };

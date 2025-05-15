@@ -1,11 +1,11 @@
 export type ReceiptInfo = {
-  items: {
-    id: number;
-    name: string;
-    price: number;
-    quantity: number;
-    imported : boolean;
+  Items: {
+    Id: number;
+    Name: string;
+    Price: number;
+    Quantity: number;
+    IsImported : boolean;
   }[];
-  tax: number;
-  total: number;
+  Tax: number;
+  Total: number;
 };

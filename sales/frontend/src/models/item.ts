@@ -12,5 +12,5 @@ export type CartItem = {
   itemId: number | null;
   price: number | null;
   quantity: number;
-  imported: boolean;
+  isImported: boolean;
 };
