@@ -21,5 +21,6 @@ export const cartConfig = {
     { id: 19, type: "food", name: "Box of Chocolates", price: 10.00 },
     { id: 20, type: "book", name: "Brave New World", price: 11.25 },
   ],
-  apiUrl: "/api/cart",//TODO: set the right url
+  apiUrl:
+    "https://5vel54bcb0.execute-api.eu-north-1.amazonaws.com/test_Stage/sales", //TODO: set the right url
 };
